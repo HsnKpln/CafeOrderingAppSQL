@@ -60,15 +60,20 @@ namespace CafeOrderingApp
                 };
                 button.Click += MasaBtn_click;
                 flpMasalar.Controls.Add(button);
+                //_frmSiparis._selectedMasa = selectedButton.Tag as Masa;
+
             }
+            
         }
         private FrmSiparis _frmSiparis;
         private void MasaBtn_click(object? sender, EventArgs e)
         {
-            
+            //var selectedMasa = ((Button)sender).Tag as Masa;
+            Button selectedButton = sender as Button;
             if(_frmSiparis==null|| _frmSiparis.IsDisposed)
-                       _frmSiparis = new FrmSiparis();
-                _frmSiparis.Show();
+                       _frmSiparis = new FrmSiparis(selectedButton.Tag as Masa);
+            //_frmSiparis._selectedMasa = selectedMasa;
+            _frmSiparis.Show();
             
         }
     }

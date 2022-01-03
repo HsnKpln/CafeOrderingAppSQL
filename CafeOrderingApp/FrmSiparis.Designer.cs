@@ -30,12 +30,16 @@
         {
             this.flpKategori = new System.Windows.Forms.FlowLayoutPanel();
             this.flpUrun = new System.Windows.Forms.FlowLayoutPanel();
-            this.lstSiparis = new System.Windows.Forms.ListBox();
             this.btnIptal = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnGeri = new System.Windows.Forms.Button();
             this.btnAdisyon = new System.Windows.Forms.Button();
             this.btnKapat = new System.Windows.Forms.Button();
+            this.dgvSiparis = new System.Windows.Forms.DataGridView();
+            this.lblToplamFiyat = new System.Windows.Forms.Label();
+            this.btnAzalt = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSiparis)).BeginInit();
             this.SuspendLayout();
             // 
             // flpKategori
@@ -52,15 +56,6 @@
             this.flpUrun.Size = new System.Drawing.Size(839, 267);
             this.flpUrun.TabIndex = 0;
             // 
-            // lstSiparis
-            // 
-            this.lstSiparis.FormattingEnabled = true;
-            this.lstSiparis.ItemHeight = 28;
-            this.lstSiparis.Location = new System.Drawing.Point(857, 12);
-            this.lstSiparis.Name = "lstSiparis";
-            this.lstSiparis.Size = new System.Drawing.Size(231, 480);
-            this.lstSiparis.TabIndex = 1;
-            // 
             // btnIptal
             // 
             this.btnIptal.Location = new System.Drawing.Point(12, 515);
@@ -69,6 +64,7 @@
             this.btnIptal.TabIndex = 2;
             this.btnIptal.Text = "İptal";
             this.btnIptal.UseVisualStyleBackColor = true;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // btnSil
             // 
@@ -78,6 +74,7 @@
             this.btnSil.TabIndex = 3;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnGeri
             // 
@@ -87,6 +84,7 @@
             this.btnGeri.TabIndex = 4;
             this.btnGeri.Text = "Geri";
             this.btnGeri.UseVisualStyleBackColor = true;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
             // 
             // btnAdisyon
             // 
@@ -96,6 +94,7 @@
             this.btnAdisyon.TabIndex = 5;
             this.btnAdisyon.Text = "Adisyon";
             this.btnAdisyon.UseVisualStyleBackColor = true;
+            this.btnAdisyon.Click += new System.EventHandler(this.btnAdisyon_Click);
             // 
             // btnKapat
             // 
@@ -105,26 +104,66 @@
             this.btnKapat.TabIndex = 6;
             this.btnKapat.Text = "Kapat";
             this.btnKapat.UseVisualStyleBackColor = true;
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
+            // 
+            // dgvSiparis
+            // 
+            this.dgvSiparis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSiparis.Location = new System.Drawing.Point(869, 12);
+            this.dgvSiparis.Name = "dgvSiparis";
+            this.dgvSiparis.RowHeadersWidth = 51;
+            this.dgvSiparis.RowTemplate.Height = 29;
+            this.dgvSiparis.Size = new System.Drawing.Size(541, 480);
+            this.dgvSiparis.TabIndex = 7;
+            // 
+            // lblToplamFiyat
+            // 
+            this.lblToplamFiyat.AutoSize = true;
+            this.lblToplamFiyat.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblToplamFiyat.Location = new System.Drawing.Point(1210, 536);
+            this.lblToplamFiyat.Name = "lblToplamFiyat";
+            this.lblToplamFiyat.Size = new System.Drawing.Size(200, 31);
+            this.lblToplamFiyat.TabIndex = 8;
+            this.lblToplamFiyat.Text = "Toplam Tutar: 0.00";
+            // 
+            // btnAzalt
+            // 
+            this.btnAzalt.Location = new System.Drawing.Point(869, 515);
+            this.btnAzalt.Name = "btnAzalt";
+            this.btnAzalt.Size = new System.Drawing.Size(127, 75);
+            this.btnAzalt.TabIndex = 9;
+            this.btnAzalt.Text = "Azalt";
+            this.btnAzalt.UseVisualStyleBackColor = true;
+            this.btnAzalt.Click += new System.EventHandler(this.btnAzalt_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // FrmSiparis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 630);
+            this.ClientSize = new System.Drawing.Size(1422, 630);
+            this.Controls.Add(this.btnAzalt);
+            this.Controls.Add(this.lblToplamFiyat);
+            this.Controls.Add(this.dgvSiparis);
             this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.btnAdisyon);
             this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnIptal);
-            this.Controls.Add(this.lstSiparis);
             this.Controls.Add(this.flpUrun);
             this.Controls.Add(this.flpKategori);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmSiparis";
             this.Text = "FrmSiparis";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSiparis_FormClosed);
             this.Load += new System.EventHandler(this.FrmSiparis_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSiparis)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -132,11 +171,14 @@
 
         private System.Windows.Forms.FlowLayoutPanel flpKategori;
         private System.Windows.Forms.FlowLayoutPanel flpUrun;
-        private System.Windows.Forms.ListBox lstSiparis;
         private System.Windows.Forms.Button btnIptal;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnGeri;
         private System.Windows.Forms.Button btnAdisyon;
         private System.Windows.Forms.Button btnKapat;
+        private System.Windows.Forms.DataGridView dgvSiparis;
+        private System.Windows.Forms.Label lblToplamFiyat;
+        private System.Windows.Forms.Button btnAzalt;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

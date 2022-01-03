@@ -47,7 +47,7 @@ namespace CafeOrderingApp
             this.label1.Location = new System.Drawing.Point(14, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 25);
+            this.label1.Size = new System.Drawing.Size(90, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kat Adı";
             // 
@@ -57,7 +57,7 @@ namespace CafeOrderingApp
             this.label2.Location = new System.Drawing.Point(14, 48);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 25);
+            this.label2.Size = new System.Drawing.Size(69, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Sırası";
             // 
@@ -67,7 +67,7 @@ namespace CafeOrderingApp
             this.label3.Location = new System.Drawing.Point(14, 87);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 25);
+            this.label3.Size = new System.Drawing.Size(69, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Kodu";
             // 
@@ -77,7 +77,7 @@ namespace CafeOrderingApp
             this.label4.Location = new System.Drawing.Point(14, 126);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 25);
+            this.label4.Size = new System.Drawing.Size(136, 32);
             this.label4.TabIndex = 3;
             this.label4.Text = "Masa Sayısı";
             // 
@@ -85,28 +85,28 @@ namespace CafeOrderingApp
             // 
             this.txtKatAdi.Location = new System.Drawing.Point(127, 9);
             this.txtKatAdi.Name = "txtKatAdi";
-            this.txtKatAdi.Size = new System.Drawing.Size(169, 33);
+            this.txtKatAdi.Size = new System.Drawing.Size(169, 39);
             this.txtKatAdi.TabIndex = 4;
             // 
             // txtKatSirasi
             // 
             this.txtKatSirasi.Location = new System.Drawing.Point(127, 48);
             this.txtKatSirasi.Name = "txtKatSirasi";
-            this.txtKatSirasi.Size = new System.Drawing.Size(169, 33);
+            this.txtKatSirasi.Size = new System.Drawing.Size(169, 39);
             this.txtKatSirasi.TabIndex = 4;
             // 
             // txtKatKodu
             // 
             this.txtKatKodu.Location = new System.Drawing.Point(127, 87);
             this.txtKatKodu.Name = "txtKatKodu";
-            this.txtKatKodu.Size = new System.Drawing.Size(169, 33);
+            this.txtKatKodu.Size = new System.Drawing.Size(169, 39);
             this.txtKatKodu.TabIndex = 4;
             // 
             // txtMasaSayisi
             // 
             this.txtMasaSayisi.Location = new System.Drawing.Point(127, 126);
             this.txtMasaSayisi.Name = "txtMasaSayisi";
-            this.txtMasaSayisi.Size = new System.Drawing.Size(169, 33);
+            this.txtMasaSayisi.Size = new System.Drawing.Size(169, 39);
             this.txtMasaSayisi.TabIndex = 4;
             // 
             // btnKatKaydet
@@ -122,15 +122,16 @@ namespace CafeOrderingApp
             // lstKat
             // 
             this.lstKat.FormattingEnabled = true;
-            this.lstKat.ItemHeight = 25;
+            this.lstKat.ItemHeight = 32;
             this.lstKat.Location = new System.Drawing.Point(323, 9);
             this.lstKat.Name = "lstKat";
-            this.lstKat.Size = new System.Drawing.Size(189, 304);
+            this.lstKat.Size = new System.Drawing.Size(189, 292);
             this.lstKat.TabIndex = 6;
+            this.lstKat.SelectedIndexChanged += new System.EventHandler(this.lstKat_SelectedIndexChanged);
             // 
             // FrmKatAyar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 443);
             this.Controls.Add(this.lstKat);
@@ -144,7 +145,7 @@ namespace CafeOrderingApp
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmKatAyar";
             this.Text = "FrmKatAyar";
             this.Load += new System.EventHandler(this.FrmKatAyar_Load);

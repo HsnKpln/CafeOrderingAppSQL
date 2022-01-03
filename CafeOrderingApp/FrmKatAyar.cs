@@ -54,5 +54,17 @@ namespace CafeOrderingApp
             lstKat.DataSource = null;
             lstKat.DataSource = _katRepo.Get().ToList();
         }
+
+        private Kat seciliKat;
+        private void lstKat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstKat.SelectedItem == null) return;
+
+            seciliKat = lstKat.SelectedItem as Kat;
+            txtKatAdi.Text = seciliKat.Ad;
+            txtKatSirasi.Text = seciliKat.Sira.ToString();
+            txtKatKodu.Text = seciliKat.Kod;
+            //txtMasaSayisi.Text = seciliKat.MasaSayisi.ToString();
+        }
     }
 }

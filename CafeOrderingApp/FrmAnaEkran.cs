@@ -48,5 +48,30 @@ namespace CafeOrderingApp
             _frmKafe.Show();
             _frmKafe.WindowState = FormWindowState.Maximized;
         }
+        private FrmRapor _frmRapor;
+        private void raporToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_frmRapor==null || _frmRapor.IsDisposed)
+            {
+                _frmRapor = new FrmRapor();
+            }
+            _frmRapor.Show();
+            _frmRapor.WindowState = FormWindowState.Maximized;
+        }
+
+        private void kapatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Programı kapatmak istiyor musunuz?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        
     }
 }
